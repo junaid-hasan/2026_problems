@@ -1,0 +1,30 @@
+# Secrets
+keys.txt
+
+# Lean/Lake build products
+.lake/
+*.olean
+*.ilean
+*.olean.hash
+
+# Local validation, toolchain, and work caches
+.validation/
+.verify-tools/
+.verify-work/
+.tools/
+.tooling/
+.work/
+.cache/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# macOS metadata
+.DS_Store

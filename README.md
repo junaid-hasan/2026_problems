@@ -8,7 +8,7 @@ The formal statements are exact copies of the `problem.lean` files released by [
 
 ## The experiment
 
-I gave GPT-5.6 Sol one designated problem file at a time. The model was not told that AxiomProver had already solved the problems. The instructions in [`gpt/AGENTS.md`](gpt/AGENTS.md) explicitly prohibited:
+I gave GPT-5.6 Sol the six problem files (`.lean`). The model was not told that AxiomProver had already solved the problems. The instructions in [`gpt/AGENTS.md`](gpt/AGENTS.md) explicitly prohibited:
 
 - web browsing or web search;
 - GitHub, GitLab, or any other online repository;
@@ -30,7 +30,7 @@ The proofs were generated with **GPT-5.6 Sol in Ultracode mode**, which spawned 
 | P6 | 529 | 771 | 45 min | 139 min |
 | **Total** | **5,206** | **7,722** | **about 3 h active session** | **1,496 min (24 h 56 min)** |
 
-The GPT total is active wall-clock time for an Ultracode session with parallel subagents, not a sum of serial solver-hours. I did not retain separate timestamps for P2, P5, and P6. Axiom's numbers are the per-problem run times published in its README. The systems, hardware, orchestration, and stopping conditions differ, so this table is descriptive rather than a controlled speed benchmark.
+The GPT total is active wall-clock time for an Ultracode session with parallel subagents, not a sum of serial solver-hours. Axiom's numbers are the per-problem run times published in its README. The systems, hardware, orchestration, and stopping conditions differ, so this table is descriptive rather than a controlled speed benchmark.
 
 The current P3 file is the raw successful artifact. Its 2,947 lines include overlapping helper lemmas and repeated infrastructure from different subagents; a cleanup pass should reduce it substantially.
 

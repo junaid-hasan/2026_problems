@@ -24,15 +24,15 @@ The proofs were generated with **GPT-5.6 Sol in Ultracode mode**, which spawned 
 | --- | ---: | ---: | ---: | ---: |
 | P1 | 394 | 521 | 22 min | 24 min |
 | P2 | 636 | 1,224 | 1 h 10 min | 360 min |
-| P3 | 2,947 | 4,229 | 1 h 58 min | 869 min |
+| P3* | 2,402 | 4,229 | 2 h 23 min | 869 min |
 | P4 | 431 | 520 | 26 min | 39 min |
 | P5 | 269 | 457 | 32 min | 65 min |
 | P6 | 529 | 771 | 45 min | 139 min |
-| **Total** | **5,206** | **7,722** | **about 3 h active session** | **1,496 min (24 h 56 min)** |
+| **Total** | **4,661** | **7,722** | **about 3 h 25 min active session** | **1,496 min (24 h 56 min)** |
 
 The GPT total is active wall-clock time for an Ultracode session with parallel subagents, not a sum of serial solver-hours. Axiom's numbers are the per-problem run times published in its README. The systems, hardware, orchestration, and stopping conditions differ, so this table is descriptive rather than a controlled speed benchmark.
 
-The current P3 file is the raw successful artifact. Its 2,947 lines include overlapping helper lemmas and repeated infrastructure from different subagents; a cleanup pass should reduce it substantially.
+\* P3 reports the compacted [`p3_solution_v2.lean`](gpt/p3_solution_v2.lean). The original 2,947-line successful artifact remains in [`p3_solution.lean`](gpt/p3_solution.lean); the verified cleanup removed 545 lines and added 25 minutes to the recorded GPT time.
 
 ## Main takeaway: `AGENTS.md`
 
@@ -50,6 +50,7 @@ The same protocol was used across all six problems and can serve as a starting p
 
 - `p1.lean` through `p6.lean`: challenge statements copied from Axiom Math. They intentionally retain their original `sorry` placeholders.
 - `gpt/p1_solution.lean` through `gpt/p6_solution.lean`: complete independent GPT-5.6 Sol proofs.
+- `gpt/p3_solution_v2.lean`: the shorter, independently revalidated P3 solution reported in the table above.
 - `gpt/AGENTS.md`: the closed-environment autoformalization and audit protocol.
 - `verify.py`: source, Lean, kernel, Comparator, and AXLE verification.
 - `lakefile.toml`, `lake-manifest.json`, and `lean-toolchain`: the pinned Lean project.
